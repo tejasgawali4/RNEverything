@@ -2,7 +2,7 @@
 import BottomTabNavigation from './BottomTabNavigation';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
-export default function MenuStack(Stack: any) {
+export default function MenuStack(Stack: any): React.JSX.Element {
   return (
     <>
       <Stack.Screen
