@@ -1,25 +1,25 @@
 /**
  * Sample React Native App
- * https://github.com/facebook/react-native
+ * https://github.com/facebook/react-nativeß
  *
  * @format
  */
 
 import React from 'react';
-import type {PropsWithChildren} from 'react';
 import {
+  Pressable,
   SafeAreaView,
   ScrollView,
   StatusBar,
   StyleSheet,
   Text,
-  useColorScheme,
   View,
+  useColorScheme,
 } from 'react-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-import {
-  Colors,
-} from 'react-native/Libraries/NewAppScreen';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
+import MainNavigation from './src/navigation/MainNavigation';
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -29,21 +29,33 @@ function App(): React.JSX.Element {
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
+    <SafeAreaProvider style={backgroundStyle}>
       <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
-      <ScrollView
+      <View style={styles.container}>
+        <MainNavigation />
+      </View>
+      {/* <ScrollView
         contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-      </ScrollView>
-    </SafeAreaView>
+        style={[backgroundStyle, styles.container]}>
+        <Pressable
+          style={{height: 100, width: 100}}
+          onPress={() => {
+            console.log('clicked...');
+          }}>
+          <Text>Welcome to RNEverything</Text>
+        </Pressable>
+      </ScrollView> */}
+    </SafeAreaProvider>
   );
 }
 
 const styles = StyleSheet.create({
-  
+  container: {
+    flex: 1,
+  },
 });
 
 export default App;

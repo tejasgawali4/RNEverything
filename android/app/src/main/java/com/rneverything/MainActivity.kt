@@ -5,6 +5,9 @@ import com.facebook.react.ReactActivityDelegate
 import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.fabricEnabled
 import com.facebook.react.defaults.DefaultReactActivityDelegate
 
+//added by Tejas for RN Navigation
+import android.os.Bundle;
+
 class MainActivity : ReactActivity() {
 
   /**
@@ -12,6 +15,12 @@ class MainActivity : ReactActivity() {
    * rendering of the component.
    */
   override fun getMainComponentName(): String = "RNEverything"
+
+  //**** added by Tejas for RN Navigation
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(null)
+  }
+  //**** added END by Tejas for RN Navigation
 
   /**
    * Returns the instance of the [ReactActivityDelegate]. We use [DefaultReactActivityDelegate]
